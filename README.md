@@ -27,7 +27,7 @@ Examples
 
 Here are some common examples of typical tasks
 
-```py
+```
 $ python3
 >>> import s3git
 >>> repo = s3git.init_repository('.')
