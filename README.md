@@ -27,6 +27,9 @@ Examples
 
 Here are some common examples of typical tasks
 
+Create a repository
+-------------------
+
 ```
 $ python3
 >>> import s3git
@@ -40,7 +43,15 @@ $ s3git ls
 c518dc5f1d95258dc91f6d285e7ea7300f37dea4dd517173f2e23afe0cb52bc9d8eb18683cdcf377e96a2d5a81585e61f6d27fa5d017cad53836bd050e9f105f
 $ s3git cat c518dc5f1d95258dc91f6d285e7ea7300f37dea4dd517173f2e23afe0cb52bc9d8eb18683cdcf377e96a2d5a81585e61f6d27fa5d017cad53836bd050e9f105f
 hello s3git
+```
 
+Clone a repository
+------------------
+
+```py
+>>> import s3git
+>>> repo = s3git.clone('s3://s3git-spoon-knife', '.', access='AKIAJYNT4FCBFWDQPERQ', secret='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')
+>>> repo.list('')
 ```
 
 Limitations and Optimizations
