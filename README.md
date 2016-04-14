@@ -18,7 +18,7 @@ Please make sure you have a working Golang environment installed, otherwise you 
 
 Also the [s3git-go](https://github.com/s3git/s3git-go) package needs to be available locally (`go get -d github.com/s3git/s3git-go`).
 
-```
+```sh
 $ 
 ```
 
@@ -27,9 +27,20 @@ Examples
 
 Here are some common examples of typical tasks
 
-```
+```py
 $ python3
->>> import s3git-py
+>>> import s3git
+>>> repo = s3git.init_repository('.')
+>>> repo.add('s3git.py')
+>>> repo.commit('My first s3git commit from Python')
+>>> exit()
+$ s3git log --pretty
+113b9e900588fd830deed131c0f2f2cdd88b4751286ecc4967d0d4990aff6821c2426425955ec104797b142e93204a604e4ba420b3b617724237476128333de8 My first s3git commit from Python
+$ s3git ls
+c518dc5f1d95258dc91f6d285e7ea7300f37dea4dd517173f2e23afe0cb52bc9d8eb18683cdcf377e96a2d5a81585e61f6d27fa5d017cad53836bd050e9f105f
+$ s3git cat c518dc5f1d95258dc91f6d285e7ea7300f37dea4dd517173f2e23afe0cb52bc9d8eb18683cdcf377e96a2d5a81585e61f6d27fa5d017cad53836bd050e9f105f
+hello s3git
+
 ```
 
 Limitations and Optimizations
