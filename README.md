@@ -54,6 +54,19 @@ Clone a repository
 >>> repo.list('')
 ```
 
+List multiple commits
+---------------------
+
+```py
+>>> import s3git
+>>> repo = s3git.init_repository(".")
+>>> repo.add('file1.txt')
+>>> repo.commit('first commit')
+>>> repo.add('file2.txt')
+>>> repo.commit('second commit')
+>>> repo.list_commits()
+```
+
 Limitations and Optimizations
 -----------------------------
 
