@@ -54,6 +54,19 @@ Clone a repository
 >>> repo.list('')
 ```
 
+Dump contents of a repository
+-----------------------------
+
+```py
+>>> import s3git
+>>> repo = s3git.init_repository(".")
+>>> repo.add('hello s3git')
+>>> repo.add('Python rocks')
+>>> repo.add(open('local-file.txt', 'rb'))
+>>> for l in repo.list('')
+>>>     repo.get(l).read
+```
+
 List multiple commits
 ---------------------
 
