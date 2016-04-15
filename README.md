@@ -51,7 +51,8 @@ Clone a repository
 ```py
 >>> import s3git
 >>> repo = s3git.clone('s3://s3git-spoon-knife', '.', access='AKIAJYNT4FCBFWDQPERQ', secret='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')
->>> repo.list('')
+>>> for l in repo.list(''):
+>>>     print(l)
 ```
 
 Dump contents of a repository
@@ -84,7 +85,9 @@ List multiple commits
 Limitations and Optimizations
 -----------------------------
 
-- To be described 
+- Streams are not yet natively supported (temp files are used under the hood)
+- Methods that return arrays (eg. list or list_commits) are currently limited to a maximum of 1000 responses
+- Proper error handling is largely missing
 
 Contributions
 -------------
