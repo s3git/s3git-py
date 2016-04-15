@@ -77,7 +77,8 @@ List multiple commits
 >>> repo.commit('first commit')
 >>> repo.add('string 2')
 >>> repo.commit('second commit')
->>> repo.list_commits()
+>>> for c in repo.list_commits():
+>>>     print(c['Message'])
 ```
 
 Limitations and Optimizations
