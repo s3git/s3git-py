@@ -34,7 +34,7 @@ Create a repository
 $ python3
 >>> import s3git
 >>> repo = s3git.init_repository('.')
->>> repo.add('s3git.py')
+>>> repo.add('hello s3git')
 >>> repo.commit('My first s3git commit from Python')
 >>> exit()
 $ s3git log --pretty
