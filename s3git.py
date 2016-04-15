@@ -52,6 +52,8 @@ extern GoInt s3git_pull(char* p0);
 extern char* s3git_list(char* p0, char* p1);
 
 extern char* s3git_list_commits(char* p0);
+
+extern GoInt s3git_remote_add(char* p0, char* p1, char* p2, char* p3, char* p4, char* p5);
 """)
 
 __s3gitlib__ = ffi.dlopen("s3git-py.so")
@@ -102,6 +104,16 @@ class Repository(object):
     def list_commits(self):
         json_str = __s3gitlib__.s3git_list_commits(ffi.new("char[]", self.path.encode('utf-8')))
         return json.loads(ffi.string(json_str).decode('utf-8'))
+
+    def remote_add(self, name, resource, access="", secret="", endpoint=""):
+        arg_path     = ffi.new("char[]", self.path.encode('utf-8'))
+        arg_name     = ffi.new("char[]", name.encode('utf-8'))
+        arg_resource = ffi.new("char[]", resource.encode('utf-8'))
+        arg_access   = ffi.new("char[]", access.encode('utf-8'))
+        arg_secret   = ffi.new("char[]", secret.encode('utf-8'))
+        arg_endpoint = ffi.new("char[]", endpoint.encode('utf-8'))
+        ret = __s3gitlib__.s3git_remote_add(arg_path, arg_name, arg_resource, arg_access, arg_secret, arg_endpoint)
+        return ret
 
 def init_repository(path):
     repo = Repository(path)
