@@ -82,6 +82,20 @@ List multiple commits
 >>>     print(c['Message'])
 ```
 
+Push to a remote repository
+---------------------------
+
+```py
+>>> import s3git
+>>> repo = s3git.init_repository('.')
+>>> repo.add('just some stuff')
+>>> repo.add('more stuff')
+>>> repo.add('and yet more stuff')
+>>> repo.commit('initial commit')
+>>> repo.remote_add('primary', 's3://s3git-spoon-knife', access='AKIAJYNT4FCBFWDQPERQ', secret='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')
+>>> repo.push()
+```
+
 Limitations and Optimizations
 -----------------------------
 
