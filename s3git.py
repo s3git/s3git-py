@@ -89,7 +89,7 @@ class Repository(object):
     def push(self, hydrate=False):
         arg_hydrate = 1 if hydrate else 0
         ret = __s3gitlib__.s3git_push(ffi.new("char[]", self.path.encode('utf-8')),
-                                      ffi.new("unsigned char", arg_hydrate))
+                                      arg_hydrate)
         return ret
 
     def pull(self):
