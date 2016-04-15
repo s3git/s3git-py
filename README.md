@@ -63,9 +63,8 @@ Dump contents of a repository
 >>> repo.add('hello s3git')
 >>> repo.add('Python rocks')
 >>> repo.add(open('local-file.txt', 'rb'))
->>> list = repo.list('')
->>> for l in list
->>>     repo.get(l).read
+>>> for l in repo.list(''):
+>>>     repo.get(l).read()
 ```
 
 List multiple commits
