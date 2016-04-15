@@ -54,7 +54,7 @@ extern char* s3git_list(char* p0, char* p1);
 extern char* s3git_list_commits(char* p0);
 """)
 
-__s3gitlib__ = ffi.dlopen("s3git.so")
+__s3gitlib__ = ffi.dlopen("s3git-py.so")
 
 class Repository(object):
     path = ""

@@ -19,13 +19,13 @@ Please make sure you have a working Golang environment installed, otherwise you 
 Also the [s3git-go](https://github.com/s3git/s3git-go) package needs to be available locally (`go get -d github.com/s3git/s3git-go`).
 
 ```sh
-$ go build -buildmode=c-shared -o s3git.so
+$ go build -buildmode=c-shared -o s3git-py.so
 ```
 
 Examples
 --------
 
-Here are some common examples of typical tasks
+Here are some common examples of typical tasks.
 
 Create a repository
 -------------------
