@@ -212,4 +212,25 @@ func s3git_list_commits(path *C.char) *C.char {
 	return C.CString(string(b))
 }
 
+//export s3git_remote_add
+func s3git_remote_add(path, name, resource, accessKey, secretKey, endpoint *C.char) int {
+
+	repo, err := s3git.OpenRepository(C.GoString(path))
+	if err != nil {
+		return -1
+	}
+
+	options := []s3git.RemoteOptions{}
+	if ep := C.GoString(endpoint); ep != "" {
+		options = append(options, s3git.RemoteOptionSetEndpoint(ep))
+	}
+
+	err = repo.RemoteAdd(C.GoString(name), C.GoString(resource), C.GoString(accessKey), C.GoString(secretKey), options...)
+	if err != nil {
+		return -1
+	}
+
+	return 0
+}
+
 func main() {}
