@@ -60,9 +60,9 @@ List multiple commits
 ```py
 >>> import s3git
 >>> repo = s3git.init_repository(".")
->>> repo.add('file1.txt')
+>>> repo.add('string 1')
 >>> repo.commit('first commit')
->>> repo.add('file2.txt')
+>>> repo.add('string 2')
 >>> repo.commit('second commit')
 >>> repo.list_commits()
 ```
