@@ -96,6 +96,16 @@ Push to a remote repository
 >>> repo.push()
 ```
 
+Create a snapshot
+-----------------
+
+```py
+>>> import s3git
+>>> repo = s3git.init_repository('.')
+>>> repo.snapshot_create("Initial snapshot")
+>>> repo.snapshot_list("")
+```
+
 Limitations and Optimizations
 -----------------------------
 
