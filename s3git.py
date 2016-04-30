@@ -54,6 +54,8 @@ extern char* s3git_list(char* p0, char* p1);
 extern char* s3git_list_commits(char* p0);
 
 extern GoInt s3git_remote_add(char* p0, char* p1, char* p2, char* p3, char* p4, char* p5);
+
+extern GoInt s3git_snapshot_create(char* p0, char* p1);
 """)
 
 __s3gitlib__ = ffi.dlopen("s3git-py.so")
@@ -113,6 +115,11 @@ class Repository(object):
         arg_secret   = ffi.new("char[]", secret.encode('utf-8'))
         arg_endpoint = ffi.new("char[]", endpoint.encode('utf-8'))
         ret = __s3gitlib__.s3git_remote_add(arg_path, arg_name, arg_resource, arg_access, arg_secret, arg_endpoint)
+        return ret
+
+    def snapshot_create(self, message):
+        ret = __s3gitlib__.s3git_snapshot_create(ffi.new("char[]", self.path.encode('utf-8')),
+                                                 ffi.new("char[]", message.encode('utf-8')))
         return ret
 
 def init_repository(path):
