@@ -249,4 +249,20 @@ func s3git_snapshot_create(path, message *C.char) int {
 	return 0
 }
 
+//export s3git_snapshot_checkout
+func s3git_snapshot_checkout(path, commit *C.char, dedupe bool) int {
+
+	repo, err := s3git.OpenRepository(C.GoString(path))
+	if err != nil {
+		return -1
+	}
+
+	err = repo.SnapshotCheckout(C.GoString(path), C.GoString(commit), dedupe)
+	if err != nil {
+		return -1
+	}
+
+	return 0
+}
+
 func main() {}
